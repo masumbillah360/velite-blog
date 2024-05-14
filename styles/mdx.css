@@ -1,4 +1,4 @@
-/* [data-rehype-pretty-code-figure] pre {
+[data-rehype-pretty-code-figure] pre {
   @apply px-0;
 }
 
@@ -36,4 +36,4 @@
 
 .subheading-anchor {
   @apply no-underline hover:underline;
-} */
+}

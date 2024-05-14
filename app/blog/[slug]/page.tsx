@@ -3,6 +3,8 @@ import { MDXContent } from '@/components/mdx-components';
 import { notFound } from 'next/navigation';
 import React from 'react';
 
+import "@/styles/mdx.css"
+
 interface PostPageProps {
     params: {
         slug: string[];
