@@ -12,13 +12,13 @@ interface BlogPageProps {
 
 const page = ({ searchParams }: BlogPageProps) => {
     const currentPage = Number(searchParams.page) || 1;
-    const POST_PER_PAGE = 1;
-    let CURRENT_PAGE = 1;
+    const POST_PER_PAGE = 6;
     const totalCount = Math.ceil(posts.length / POST_PER_PAGE);
     const disPlayPosts = posts.slice(
         POST_PER_PAGE * (currentPage - 1),
         POST_PER_PAGE * currentPage
     );
+    console.log(disPlayPosts[0].slugAsParams);
     return (
         <section className="container mx-auto flex flex-col justify-center items-center gap-3">
             {disPlayPosts.map(
@@ -50,6 +50,7 @@ const page = ({ searchParams }: BlogPageProps) => {
                         tags={tags}
                         thumbnail={thumbnail}
                         isLeft={index % 2 == 0}
+                        slug={slugAsParams}
                     />
                 )
             )}

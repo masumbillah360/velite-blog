@@ -49,9 +49,11 @@ const QueryPagination = ({ totalPage, className }: QueryPaginationProps) => {
         <Pagination className={className}>
             <PaginationContent>
                 {prevPage >= 1 && (
-                    <PaginationItem>
-                        <PaginationPrevious href={createPageURL(prevPage)} />
-                    </PaginationItem>
+                <PaginationItem className="">
+                    <PaginationPrevious
+                        href={createPageURL(prevPage)}
+                    />
+                </PaginationItem>
                 )}
                 {currentPage > 4 && (
                     <PaginationItem>
