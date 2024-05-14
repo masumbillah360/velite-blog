@@ -1,17 +1,8 @@
 import React from 'react';
 
-import {
-    Pagination,
-    PaginationContent,
-    PaginationEllipsis,
-    PaginationItem,
-    PaginationLink,
-    PaginationNext,
-    PaginationPrevious,
-} from '@/components/ui/pagination';
-
 import { posts } from '@/.velite';
 import PostCard from '@/components/cards/postCard';
+import QueryPagination from '@/components/query-pagination';
 
 interface BlogPageProps {
     searchParams: {
@@ -21,7 +12,7 @@ interface BlogPageProps {
 
 const page = ({ searchParams }: BlogPageProps) => {
     const currentPage = Number(searchParams.page) || 1;
-    const POST_PER_PAGE = 3;
+    const POST_PER_PAGE = 1;
     let CURRENT_PAGE = 1;
     const totalCount = Math.ceil(posts.length / POST_PER_PAGE);
     const disPlayPosts = posts.slice(
@@ -63,22 +54,7 @@ const page = ({ searchParams }: BlogPageProps) => {
                 )
             )}
             <div className="m-6 px-4 py-2 rounded border">
-                <Pagination>
-                    <PaginationContent>
-                        <PaginationItem>
-                            <PaginationPrevious href="#" />
-                        </PaginationItem>
-                        <PaginationItem>
-                            <PaginationLink href="#">1</PaginationLink>
-                        </PaginationItem>
-                        <PaginationItem>
-                            <PaginationEllipsis />
-                        </PaginationItem>
-                        <PaginationItem>
-                            <PaginationNext href="#" />
-                        </PaginationItem>
-                    </PaginationContent>
-                </Pagination>
+                <QueryPagination totalPage={totalCount} />
             </div>
         </section>
     );
