@@ -27,12 +27,13 @@ const PostCard = ({
     isLeft,
 }: PostCardProps) => {
     return (
-        <Link href={`blog/${slug}`} target='_blank'>
+        <Link href={`blog/${slug}`} target="_blank">
             <div
-                className={`rounded-lg border bg-card text-card-foreground shadow-sm flex justify-between size-full ${
-                    isLeft && 'flex-row-reverse'
+                className={`rounded-lg border bg-card text-card-foreground shadow-sm flex flex-col-reverse sm:flex-row justify-between size-full ${
+                    isLeft && 'sm:flex-row-reverse md:flex-cols-revers'
                 }`}>
-                <div className={`flex justify-between w-1/2 flex-col`}>
+                <div
+                    className={`flex justify-between w-full sm:w-1/2 flex-col`}>
                     <div
                         className={`flex flex-col justify-between h-full ${
                             isLeft ? 'items-start' : 'items-end'
@@ -81,9 +82,9 @@ const PostCard = ({
                     </div>
                 </div>
                 <CustomIMG
-                    className={`w-1/2 ${
-                        isLeft ? 'rounded-l-lg' : 'rounded-r-lg'
-                    }`}>
+                    className={
+                        `w-full sm:w-1/2 rounded-lg`
+                    }>
                     <CustomImage className="h-96 w-full" src={thumbnail} />
                     <CustomImageFallback className="h-96 w-full">
                         <div className="text-center">

@@ -18,7 +18,7 @@ const page = ({ searchParams }: BlogPageProps) => {
         POST_PER_PAGE * (currentPage - 1),
         POST_PER_PAGE * currentPage
     );
-    console.log(disPlayPosts[0].slugAsParams);
+
     return (
         <section className="container mx-auto flex flex-col justify-center items-center gap-3">
             {disPlayPosts.map(
@@ -36,23 +36,24 @@ const page = ({ searchParams }: BlogPageProps) => {
                         thumbnail,
                     },
                     index
-                ) => (
-                    <PostCard
-                        key={slug}
-                        title={title}
-                        subTitle={subTitle}
-                        description={
-                            description.length > 0
-                                ? `${description.slice(0, 350) + '...'}`
-                                : description
-                        }
-                        date={date}
-                        tags={tags}
-                        thumbnail={thumbnail}
-                        isLeft={index % 2 == 0}
-                        slug={slugAsParams}
-                    />
-                )
+                ) =>
+                    publish && (
+                        <PostCard
+                            key={slug}
+                            title={title}
+                            subTitle={subTitle}
+                            description={
+                                description.length > 0
+                                    ? `${description.slice(0, 350) + '...'}`
+                                    : description
+                            }
+                            date={date}
+                            tags={tags}
+                            thumbnail={thumbnail}
+                            isLeft={index % 2 == 0}
+                            slug={slugAsParams}
+                        />
+                    )
             )}
             <div className="m-6 px-4 py-2 rounded border">
                 <QueryPagination totalPage={totalCount} />
