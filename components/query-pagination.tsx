@@ -56,12 +56,12 @@ const QueryPagination = ({ totalPage, className }: QueryPaginationProps) => {
                 </PaginationItem>
                 )}
                 {currentPage > 4 && (
-                    <PaginationItem>
+                    <PaginationItem className='hidden sm:inline-block'>
                         <PaginationEllipsis />
                     </PaginationItem>
                 )}
                 {visiblePageNumbers.map((pageNumber) => (
-                    <PaginationItem key={`page-${pageNumber}`}>
+                    <PaginationItem className='hidden sm:inline-block' key={`page-${pageNumber}`}>
                         <PaginationLink
                             isActive={currentPage === pageNumber}
                             href={createPageURL(pageNumber)}>
