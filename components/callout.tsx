@@ -10,7 +10,7 @@ export function Callout({
     children,
     type = 'default',
     ...props
-}: CalloutProps) {
+}: Readonly<CalloutProps>) {
     return (
         <div
             className={cn(

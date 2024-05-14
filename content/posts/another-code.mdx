@@ -4,7 +4,7 @@ subTitle: Hello World From First MDX File & it's really cooll.
 description: Syntax highlighting, line numbers, line highlights, word highlights
 date: 2024-03-04
 tags: ["code", "rehype pretty", "mdx"]
-published: true
+published: false
 thumbnail: http://localhost:3000/assets/hello.png
 ---
 
@@ -27,7 +27,6 @@ import { useFloating } from "@floating-ui/react";
 
 function MyComponent() {
   const { refs, floatingStyles } = useFloating();
-
   return (
     <>
       <div ref={refs.setReference} />
@@ -59,17 +58,17 @@ function MyComponent() {
 ## ANSI Highlighting
 
 ```ansi
-[0;36m  vite v5.0.0[0;32m dev server running at:[0m
+vite v5.0.0 dev server running at:
 
-  > Local: [0;36mhttp://localhost:[0;36;1m3000[0;36m/[0m
-  > Network: [0;2muse `--host` to expose[0m
+  > Local: []
+  > Network: [0;2muse `--host` to expose[0m
 
   [0;36mready in 125ms.[0m
 
 [0;2m8:38:02 PM[0m [0;36;1m[vite][0m [0;32mhmr update [0;2m/src/App.jsx
 ```
 
-Inline ANSI: `> Local: [0;36mhttp://localhost:[0;36;1m3000[0;36m/[0m{:ansi}`
+Inline ANSI:`> Local: http://localhost:3000{:ansi}`
 
 ---
 

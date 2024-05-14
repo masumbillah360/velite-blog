@@ -2,6 +2,14 @@ import { build } from 'velite';
 
 /** @type {import('next').NextConfig} */
 export default {
+    images: {
+        remotePatterns: [
+            {
+                hostname: 'localhost',
+                protocol: 'http',
+            },
+        ],
+    },
     webpack: (config) => {
         config.plugins.push(new VeliteWebpackPlugin());
         return config;

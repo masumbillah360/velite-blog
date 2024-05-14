@@ -13,11 +13,14 @@ const posts = defineCollection({
     pattern: 'posts/**/*.mdx',
     schema: s
         .object({
-            slug: s.path(), // auto generate slug from file path
-            title: s.string().max(99), // Zod primitive type
-            description: s.string().max(909), // Zod primitive type
-            date: s.isodate(), // input Date-like string, output ISO Date string.
+            slug: s.path(),
+            title: s.string().max(99),
+            subTitle: s.string().max(200),
+            date: s.isodate(),
+            tags: s.array(s.string()),
+            description: s.string().max(500),
             publish: s.boolean().default(true),
+            thumbnail: s.string(),
             body: s.mdx(),
         })
         .transform(computedFields),

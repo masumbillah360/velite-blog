@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import React from 'react';
 
 import "@/styles/mdx.css"
+import { Button } from '@/components/ui/button';
 
 interface PostPageProps {
     params: {
@@ -30,6 +31,8 @@ const page = async ({ params: { slug } }: PostPageProps) => {
                     {post.description}
                 </p>
             ) : null}
+            <hr className="my-4" />
+            {post.tags.map(t => (<Button variant="destructive" className='mx-1' key={t}>{t}</Button>))}
             <hr className="my-4" />
             <MDXContent code={post.body} />
         </article>
