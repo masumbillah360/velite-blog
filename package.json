@@ -1,38 +1,39 @@
 {
-  "name": "velite_blog",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@radix-ui/react-avatar": "^1.0.4",
-    "@radix-ui/react-slot": "^1.0.2",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.1",
-    "lucide-react": "^0.378.0",
-    "next": "14.2.3",
-    "react": "^18",
-    "react-dom": "^18",
-    "rehype-autolink-headings": "^7.1.0",
-    "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7"
-  },
-  "devDependencies": {
-    "@tailwindcss/typography": "^0.5.13",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.3",
-    "postcss": "^8",
-    "rehype-pretty-code": "^0.13.2",
-    "rehype-slug": "^6.0.0",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5",
-    "velite": "^0.1.0-rc.3"
-  }
+    "name": "velite_blog",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "velite": "npx velite"
+    },
+    "dependencies": {
+        "@radix-ui/react-avatar": "^1.0.4",
+        "@radix-ui/react-slot": "^1.0.2",
+        "class-variance-authority": "^0.7.0",
+        "clsx": "^2.1.1",
+        "lucide-react": "^0.378.0",
+        "next": "14.2.3",
+        "react": "^18",
+        "react-dom": "^18",
+        "tailwind-merge": "^2.3.0",
+        "tailwindcss-animate": "^1.0.7"
+    },
+    "devDependencies": {
+        "@tailwindcss/typography": "^0.5.13",
+        "@types/node": "^20",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "eslint": "^8",
+        "eslint-config-next": "14.2.3",
+        "postcss": "^8",
+        "rehype-autolink-headings": "^7.1.0",
+        "rehype-pretty-code": "^0.13.2",
+        "rehype-slug": "^6.0.0",
+        "tailwindcss": "^3.4.1",
+        "typescript": "^5",
+        "velite": "^0.1.0-rc.3"
+    }
 }

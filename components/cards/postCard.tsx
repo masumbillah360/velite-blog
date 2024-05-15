@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { Button } from '../ui/button';
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
-import { CustomIMG, CustomImage, CustomImageFallback } from '../ImageFallback';
 import Link from 'next/link';
+import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 interface PostCardProps {
     slug: string;
@@ -16,6 +16,10 @@ interface PostCardProps {
     isLeft?: boolean;
 }
 
+const ImageLoader =() => (
+    <div>Loading...</div>
+) 
+
 const PostCard = ({
     slug,
     title,
@@ -27,9 +31,9 @@ const PostCard = ({
     isLeft,
 }: PostCardProps) => {
     return (
-        <Link href={`blog/${slug}`} target="_blank">
+        <Link className="size-full" href={slug} target="_blank">
             <div
-                className={`rounded-lg border bg-card text-card-foreground shadow-sm flex flex-col-reverse sm:flex-row justify-between size-full ${
+                className={`rounded-lg border bg-card text-card-foreground shadow-sm flex flex-col-reverse sm:flex-row justify-between ${
                     isLeft && 'sm:flex-row-reverse md:flex-cols-revers'
                 }`}>
                 <div
@@ -51,7 +55,7 @@ const PostCard = ({
                                 <div className="">
                                     {tags.map((t) => (
                                         <Button
-                                            variant="destructive"
+                                            variant="outline"
                                             className="mx-1"
                                             key={t}>
                                             #{t}
@@ -63,14 +67,24 @@ const PostCard = ({
                         </div>
                         <div className="px-6 py-3 mb-2 rounded shadow-md">
                             <div className="flex justify-center items-center gap-2">
-                                <Avatar>
+                                {/* <Avatar>
                                     <AvatarImage
                                         height={50}
                                         width={50}
                                         src={thumbnail}
                                     />
                                     <AvatarFallback>MB</AvatarFallback>
-                                </Avatar>
+                                </Avatar> */}
+                                <Image
+                                    src={thumbnail}
+                                    className="flex bg-contain items-center justify-center rounded-full bg-muted"
+                                    alt="Profile Image"
+                                    width={300}
+                                    height={300}
+                                    quality={100}
+                                    style={{ width: "50px", height: "50px"}}
+                                    priority
+                                />
                                 <div>
                                     <h4 className="text-xl font-bold">
                                         Masum Billah
@@ -81,18 +95,17 @@ const PostCard = ({
                         </div>
                     </div>
                 </div>
-                <CustomIMG
-                    className={
-                        `w-full sm:w-1/2 rounded-lg`
-                    }>
-                    <CustomImage className="h-96 w-full" src={thumbnail} />
-                    <CustomImageFallback className="h-96 w-full">
-                        <div className="text-center">
-                            <p>Blog Thumbnail</p>
-                            <h4 className="text-xl font-bold">Coming Soon!</h4>
-                        </div>
-                    </CustomImageFallback>
-                </CustomIMG>
+                <Image
+                    width={800}
+                    height={640}
+                    className={cn('w-full bg-contain h-64 sm:h-96', {
+                        'sm:w-1/2 sm:rounded-tr-none sm:rounded-l-md ': isLeft,
+                        'sm:w-1/2 sm:rounded-r-md sm:rounded-tl-none': !isLeft,
+                        'rounded-t-md rounded-b-none': true,
+                    })}
+                    src={thumbnail}
+                    alt="Blog Thumbnail"
+                />
             </div>
         </Link>
     );

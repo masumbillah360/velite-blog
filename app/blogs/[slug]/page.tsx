@@ -1,9 +1,9 @@
-import { posts } from '@/.velite';
+import { blogs } from '@/.velite';
 import { MDXContent } from '@/components/mdx-components';
 import { notFound } from 'next/navigation';
 import React from 'react';
 
-import "@/styles/mdx.css"
+import '@/styles/mdx.css';
 import { Button } from '@/components/ui/button';
 
 interface PostPageProps {
@@ -12,29 +12,32 @@ interface PostPageProps {
     };
 }
 async function getPostFromParams(params: any) {
-    console.log('Params -> ', params);
     const slug = params;
-    const post = posts.find((post) => post.slugAsParams === slug);
-    return post;
+    const blog = blogs.find((blog) => blog.slugAsParams === slug);
+    return blog;
 }
 
 const page = async ({ params: { slug } }: PostPageProps) => {
-    const post = await getPostFromParams(slug);
-    if (!post || !post.publish) {
+    const blog = await getPostFromParams(slug);
+    if (!blog?.publish) {
         return notFound();
     }
     return (
-        <article className="container py-6 prose dark:prose-invert mx-auto">
-            <h1>{post.title}</h1>
-            {post.description ? (
+        <article className="py-6 prose dark:prose-invert mx-auto">
+            <h1>{blog.title}</h1>
+            {blog.description ? (
                 <p className="text-xl mt-0 text-muted-foreground">
-                    {post.description}
+                    {blog.description}
                 </p>
             ) : null}
             <hr className="my-4" />
-            {post.tags.map(t => (<Button variant="destructive" className='mx-1' key={t}>{t}</Button>))}
+            {blog.tags.map((t) => (
+                <Button variant="destructive" className="mx-1" key={t}>
+                    {t}
+                </Button>
+            ))}
             <hr className="my-4" />
-            <MDXContent code={post.body} />
+            <MDXContent code={blog.body} />
         </article>
     );
 };

@@ -15,8 +15,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-pt-[3.5rem]">
-      <body className={inter.className}>{children}</body>
-    </html>
+      <html lang="en" className="scroll-pt-[3.5rem]">
+          <body className={`${inter.className} container mx-auto size-full`}>{children}</body>
+      </html>
   );
 }

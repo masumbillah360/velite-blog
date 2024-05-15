@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { posts } from '@/.velite';
+import { blogs } from '@/.velite';
 import PostCard from '@/components/cards/postCard';
 import QueryPagination from '@/components/query-pagination';
 
@@ -12,15 +12,15 @@ interface BlogPageProps {
 
 const page = ({ searchParams }: BlogPageProps) => {
     const currentPage = Number(searchParams.page) || 1;
-    const POST_PER_PAGE = 6;
-    const totalCount = Math.ceil(posts.length / POST_PER_PAGE);
-    const disPlayPosts = posts.slice(
-        POST_PER_PAGE * (currentPage - 1),
-        POST_PER_PAGE * currentPage
+    const BLOG_PER_PAGE = 6;
+    const totalCount = Math.ceil(blogs.length / BLOG_PER_PAGE);
+    const disPlayPosts = blogs.slice(
+        BLOG_PER_PAGE * (currentPage - 1),
+        BLOG_PER_PAGE * currentPage
     );
 
     return (
-        <section className="container mx-auto flex flex-col justify-center items-center gap-3">
+        <section className="mx-auto flex flex-col justify-center items-center gap-6">
             {disPlayPosts.map(
                 (
                     {
@@ -28,10 +28,8 @@ const page = ({ searchParams }: BlogPageProps) => {
                         subTitle,
                         description,
                         date,
-                        body,
                         publish,
                         slug,
-                        slugAsParams,
                         tags,
                         thumbnail,
                     },
@@ -51,7 +49,7 @@ const page = ({ searchParams }: BlogPageProps) => {
                             tags={tags}
                             thumbnail={thumbnail}
                             isLeft={index % 2 == 0}
-                            slug={slugAsParams}
+                            slug={slug}
                         />
                     )
             )}
