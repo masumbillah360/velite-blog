@@ -1,5 +1,19 @@
-import {posts} from "#site/content"
+import About from '@/section/About';
+import Blogs from '@/section/Blog';
+import Contact from '@/section/Contact';
+import Banner from '@/section/Home';
+import Projects from '@/section/Projects';
+import Skill from '@/section/Skill';
+
 export default function Home() {
-    console.log(posts);
-    return <div>Hello</div>;
+    return (
+        <div>
+            <Banner />
+            <About />
+            <Skill />
+            <Projects />
+            <Blogs />
+            <Contact />
+        </div>
+    );
 }
